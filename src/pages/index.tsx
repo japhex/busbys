@@ -1,25 +1,42 @@
-import { Box, Flex } from '@chakra-ui/react'
+import { Box, Center, Flex, Tag, Text } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 
 import Hero from 'components/hero'
+import { client, urlFor } from 'utils/sanity'
 
-const Home: NextPage = () => (
+const Home: NextPage = ({ homepage }) => (
   <Box>
-    <Hero
-      title="Finding Insurance is east with Busby's"
-      description="We offer practical solutions designed to support personal and business insurance customers. We work closely with our network of Leading UK Insurance Providers who are constantly developing new initiatives to meet evolving client demands, to provide cost-effective insurance policies."
-    />
+    <Hero title={homepage.heroTitle} description={homepage.heroContent} />
     <Box bg="WHITE">
       <Flex>
-        <Box>We keep ahead of the industry trends</Box>
-        <Box>
-          Our team of brokers are experienced insurance professionals, trained to understand your unique needs, to
-          formulate the perfect insurance cover. We continue to seek out partner companies who give the broadest price
-          comparison, for a superb range of personal and business insurance products.
-        </Box>
+        <Box>{homepage.sectionOneTitle}</Box>
+        <Box>{homepage.sectionOneContent}</Box>
       </Flex>
+    </Box>
+    <Center>
+      <Tag>Services</Tag>
+      <Text>{homepage.servicesTitle}</Text>
+      <Text>{homepage.servicesContent}</Text>
+    </Center>
+    <Box>
+      {homepage.services?.map(service => (
+        <Box>
+          <img src={urlFor(service.image)} alt={service.title} />
+          <Text>{service.title}</Text>
+          <Text>{service.description}</Text>
+        </Box>
+      ))}
     </Box>
   </Box>
 )
 
+export async function getStaticProps() {
+  const homepage = await client.fetch(`*[_type == "homepage"]`)
+
+  return {
+    props: {
+      homepage: homepage[0],
+    },
+  }
+}
 export default Home
