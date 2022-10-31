@@ -1,8 +1,10 @@
+import { ReactNode } from 'react'
+
 import { Box, Flex, Text } from '@chakra-ui/react'
 
 interface Props {
   title: string
-  description: string
+  description: string | ReactNode
   footer?: string
 }
 
