@@ -48,6 +48,7 @@ const Home: NextPage = ({ homepage }: Props) => (
       {homepage.services?.map(service => (
         <Card>
           <Flex direction="column" gap={7}>
+            {/* @ts-ignore */}
             <img src={urlFor(service.image)} alt={service.title} />
             <Text fontSize={24} fontFamily="satoshiBold">
               {service.title}
@@ -64,6 +65,7 @@ const Home: NextPage = ({ homepage }: Props) => (
       <Grid px={28} py={16} gap={9} templateColumns="auto auto auto">
         {homepage.quotes.map(quote => (
           <Card>
+            {/* @ts-ignore */}
             {quote.icon && <img src={urlFor(quote.icon)} alt={quote.title} />}
             <Text>{quote.title}</Text>
             <Link isExternal href={quote.link}>
