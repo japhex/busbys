@@ -4,7 +4,7 @@ import type { AppProps } from 'next/app'
 import Footer from 'components/footer'
 import Header from 'components/header'
 import { theme } from 'theme'
-import Fonts from 'theme/fonts'
+import Fonts from 'theme/FontFamilies'
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <ChakraProvider theme={theme}>
