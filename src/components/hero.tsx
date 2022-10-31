@@ -1,4 +1,4 @@
-import { Box, Flex } from '@chakra-ui/react'
+import { Box, Flex, Text } from '@chakra-ui/react'
 
 interface Props {
   title: string
@@ -7,9 +7,13 @@ interface Props {
 }
 
 const Hero = ({ title, description, footer }: Props) => (
-  <Box px={28}>
+  <Box px={28} pt={16} pb={40}>
     <Flex direction="column">
-      <Box>{title}</Box>
+      <Box>
+        <Text fontFamily="clashMedium" color="busbyRed" fontSize="100px">
+          {title}
+        </Text>
+      </Box>
       <Box>{description}</Box>
       <Box>{footer}</Box>
     </Flex>
