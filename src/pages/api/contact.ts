@@ -35,7 +35,7 @@ const buildEmail = async ({ email, name, phone, message }) =>
 `
   )
 
-export default async function contact(req: NextApiRequest, res: NextApiResponse<Data>) {
+export default async function contact(req: NextApiRequest, res: NextApiResponse) {
   const { email, name, phone, message } = req.body
 
   sendgrid.setApiKey(process.env.SENDGRID_API_KEY)
