@@ -80,6 +80,12 @@ export const theme = extendTheme({
         solid: (props: StyleFunctionProps) => ({
           bg: props.colorMode === 'dark' ? 'red.300' : 'red.500',
         }),
+        primary: {
+          bg: 'RED3',
+          paddingX: 12,
+          fontSize: 'md',
+          color: 'WHITE',
+        },
         secondary: {
           bg: 'BLACK',
           paddingX: 12,
